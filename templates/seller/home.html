@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class="container d-flex justify-content-center ">
+    <div class="d-flex justify-content-center">
+            {% for i in products %}
+            <div class="card m-3" style="width: 18rem;">
+                <img src='/media/{{i.image_data}}' class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{i.product_name}}</h5>
+                    <p class="card-text">{{i.spec}}</p>
+                    <a href="{% url 'productView' i.slug %}" class="btn btn-primary">Buy @ {{i.buy_price}}</a>
+                    <a href="#" class="btn btn-primary">Rent @ {{i.rent_price}}</a>
+                </div>
+            </div>    
+            {%endfor%}    
+    </div>  
+</div>
+{% endblock content %}
