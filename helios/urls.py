@@ -11,7 +11,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('add_product/', views.add_product, name="addproduct"),
-    path('cart/', views.cart, name="cart"),
+    path('cart/', include('cart.urls')),
     path('<str:slug>', views.productView, name="productView"),
 ]
 
