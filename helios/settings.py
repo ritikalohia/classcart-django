@@ -29,6 +29,8 @@ INSTALLED_APPS = [
 
     #app
     'ares',
+    'cart',
+    'order',
 
      #allauth
     'django.contrib.sites',
@@ -130,6 +132,14 @@ AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
+
+
+# STRIPE PAYMENT
+STRIPE_PUB_KEY = 'pk_test_OKdhbDNME5KHtnpzYRBfNmEZ00mjM6DVsJ' # For JavaScript
+STRIPE_SECRET_KEY = 'sk_test_jaIdMJOlkcUG6QpXV5wAJxXT005aZAJVM1' # For Django Backend
+
+SESSION_COOKIE_AGE = 86400 # Day in Seconds
+CART_SESSION_ID = 'cart'
 
 SITE_ID = 2
 

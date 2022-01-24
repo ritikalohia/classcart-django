@@ -15,7 +15,9 @@ def cart_detail(request):
     # If Checkout
     if request.method == 'POST':
         form = CheckoutForm(request.POST)
+        print("yes")
         if form.is_valid():
+            
             stripe.api_key = settings.STRIPE_SECRET_KEY
 
             stripe_token = form.cleaned_data['stripe_token']
@@ -64,8 +66,9 @@ def cart_detail(request):
         cart.add(change_quantity, quantity, True)
         return redirect('cart:cart')
         
-    return render(request, 'cart/cart.html', {'form': form, 'stripe_pub_key': settings.STRIPE_PUB_KEY})
+    return render(request, 'checkout/checkout.html', {'form': form})
+    #return render(request, 'cart/cart.html', {'form': form, 'stripe_pub_key': settings.STRIPE_PUB_KEY})
 
 
-def success(request):
-    return render(request, 'cart/success.html')
+# def success(request):
+#     return render(request, 'cart/success.html')

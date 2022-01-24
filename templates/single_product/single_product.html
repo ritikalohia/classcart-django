@@ -22,8 +22,17 @@
                             <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand">Orianz</span>
                                 <h5 class="text-uppercase">{{product.product_name}}</h5>
                                 <div class="price d-inline flex-row align-items-center"> 
-                                    <span class="act-price">rent-price = {{product.rent_price}}</span>
-                                    <div class="ml-2"> <span class="dis-price">buy-price = {{product.buy_price}}</span> </div>
+                                    <form method="post" action="">
+                                        {% csrf_token %}
+                                    <div class="field has-addons">
+                                        <div class="control">
+                                            <input type="number" name="quantity" value="1" class="input" min="1" id="">
+                                        </div>
+                                        <div class="control">
+                                            <button class="button is-dark is-uppercase">Add to Cart</button>
+                                        </div>
+                                    </div>    
+                                    </form>
                                 </div>
                             </div>
                             <p class="about">{{product.spec}}</p>
